@@ -1,78 +1,92 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/route_manager.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-// import '../../../core/extension/context_extension.dart';
+import '../../../core/extension/context_extension.dart';
+import '../../../feature/lang/locale_keys.g.dart';
 
-// class MenuWidget extends StatelessWidget {
-//   const MenuWidget({Key? key}) : super(key: key);
+class DrawerWidget extends StatelessWidget {
+  const DrawerWidget({Key? key}) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     final TextStyle? captionText = context.theme.textTheme.caption;
-//     final double width = context.getWidth(1);
+  @override
+  Widget build(BuildContext context) {
+    final List<MenuItem> menuItems = [
+      MenuItem(
+        title: LocaleKeys.rateUs.tr(),
+        iconData: CupertinoIcons.star,
+        onTap: () {},
+      ),
+      MenuItem(
+          title: LocaleKeys.sendFeedback.tr(),
+          iconData: CupertinoIcons.bubble_left,
+          onTap: () {}),
+      MenuItem(
+          title: LocaleKeys.share.tr(),
+          iconData: CupertinoIcons.link,
+          onTap: () {}),
+      MenuItem(
+          title: LocaleKeys.language.tr(),
+          iconData: CupertinoIcons.globe,
+          onTap: () {}),
+    ];
 
-//     final List<MenuItem> menuItems = [
-//       MenuItem(title: LocaleKeys.language.tr()),
-//       MenuItem(title: LocaleKeys.video.tr()),
-//       MenuItem(title: LocaleKeys.image.tr()),
-//       MenuItem(title: LocaleKeys.edit.tr()),
-//       MenuItem(title: LocaleKeys.setting.tr()),
-//       MenuItem(title: LocaleKeys.entertainment.tr()),
-//       MenuItem(title: LocaleKeys.sports.tr()),
-//       MenuItem(title: LocaleKeys.discussion.tr()),
-//       MenuItem(title: LocaleKeys.notification.tr()),
-//       MenuItem(title: LocaleKeys.newsFeedSettings.tr()),
-//     ];
+    return Drawer(
+      width: context.width(0.75),
+      child: Column(
+        children: [
+          SizedBox(height: context.height(0.05)),
+          const Icon(
+            CupertinoIcons.camera_viewfinder,
+            size: 75,
+          ),
+          AutoSizeText(
+            "Recordy",
+            style: context.textTheme.headline4,
+            maxLines: 1,
+          ),
+          AutoSizeText(
+            "`User-friendly recording app`",
+            style: context.textTheme.bodySmall!
+                .copyWith(fontStyle: FontStyle.italic),
+            maxLines: 1,
+          ),
+          SizedBox(height: context.height(0.05)),
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const ClampingScrollPhysics(),
+            padding: EdgeInsets.zero,
+            itemCount: menuItems.length,
+            itemBuilder: (context, index) => menuItems[index],
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-//     return Drawer(
-//       width: width * (0.85),
-//       child: ListView.builder(
-//         physics: const ClampingScrollPhysics(),
-//         padding: EdgeInsets.zero,
-//         itemCount: menuItems.length + 1,
-//         itemBuilder: ((context, index) {
-//           if (index == 0) {
-//             return SizedBox(
-//               height: context.height(0.15),
-//               child: DrawerHeader(
-//                 child: Row(
-//                   children: [
-//                     Image.asset("assets/img/icon.png"),
-//                     SizedBox(width: context.width(0.045)),
-//                     Text('News App', style: captionText),
-//                   ],
-//                 ),
-//               ),
-//             );
-//           } else if (index == menuItems.length) {
-//             return Container();
-//           } else {
-//             return menuItems[index];
-//           }
-//         }),
-//       ),
-//     );
-//   }
-// }
+class MenuItem extends StatelessWidget {
+  const MenuItem({
+    Key? key,
+    required this.title,
+    required this.iconData,
+    required this.onTap,
+  }) : super(key: key);
 
-// class MenuItem extends StatelessWidget {
-//   const MenuItem({
-//     Key? key,
-//     required this.title,
-//   }) : super(key: key);
+  final String title;
+  final IconData iconData;
+  final Function onTap;
 
-//   final String title;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListTile(
-//       title: Text(title),
-//       onTap: () => Get.back(),
-//       leading: Icon(
-//         Icons.circle,
-//         color: Colors.blue,
-//         size: context.height(0.04),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(title),
+      onTap: () => onTap(),
+      leading: Icon(
+        iconData,
+        color: Colors.blue,
+        size: context.height(0.04),
+      ),
+    );
+  }
+}

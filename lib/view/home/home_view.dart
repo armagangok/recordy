@@ -1,9 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../feature/lang/locale_keys.g.dart';
-
-
+import './components/drawer_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -11,12 +8,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: ,
-      appBar: AppBar(
-        title: Text(
-          LocaleKeys.language.tr(),
-        ),
-      ),
+      drawer: const DrawerWidget(),
+      appBar: AppBar(title: const Text("")),
       body: const Center(),
     );
   }
