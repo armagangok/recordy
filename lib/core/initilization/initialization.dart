@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../feature/lang/codegen_loader.g.dart';
 import '../../main.dart';
 
 Future<void> initApp() async {
@@ -16,7 +17,8 @@ Future<void> initApp() async {
         Locale('tr'),
       ],
       path: 'assets/lang',
-      fallbackLocale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('en'),
+      assetLoader: const CodegenLoader(),
       child: const MyApp(),
     ),
   );

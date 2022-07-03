@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import './view/home/home_view.dart';
 import 'core/initilization/initialization.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 void main() async => await initApp();
 
