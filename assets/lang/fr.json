@@ -1,0 +1,18 @@
+{
+  "rateUs" : "Évaluez Nous" ,
+  "sendFeedback": "Envoyer Des Commentaires",
+  "share":"Partager", 
+  "language": "Langue",
+  "video": "Vidéo",
+  "image":"Image",
+  "edit":"Éditer",
+  "setting":"Réglage",
+  "videoSetting":"Paramètres Vidéo",
+  "noImage":"Pas d'image.",
+  "noVideo":"Aucune vidéo n'a encore été enregistrée.",
+  "resolution":"Résolution",
+  "bitRate":"Débit binaire",
+  "fps": "images par seconde(fps)",
+  "orientation" : "Orientation"
+
+}

@@ -1,0 +1,17 @@
+{
+  "rateUs" : "Bizi Değerlendirin" ,
+  "sendFeedback": "Geribildirim Gönder",
+  "share":"Paylaş",
+  "language": "Dil",
+  "video": "Video",
+  "image":"Fotoğraf",
+  "edit":"Düzenle",
+  "setting":"Ayarlar",
+  "videoSetting":"Video Ayarları",
+  "noImage":"Henüz resim çekilmedi.",
+  "noVideo":"Henüz video kaydedilmedi.",
+  "resolution":"Çözünürlük",
+  "bitRate":"Bit hızı",
+  "fps": "Kare hızı(fps)",
+  "orientation" : "Ekran döndürme"
+}

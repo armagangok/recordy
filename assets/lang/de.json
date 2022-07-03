@@ -1,0 +1,17 @@
+{
+  "rateUs" : "Bewerten Sie Uns" ,
+  "sendFeedback": "Feedback abschicken",
+  "share":"Teilen",
+  "language": "Sprache",
+  "video": "Video",
+  "image":"Bild",
+  "edit":"Bearbeiten",
+  "setting":"Einstellung",
+  "videoSetting":"Video Einstellungen",
+  "noImage":"Kein bild.",
+  "noVideo":"Es wurde noch kein video aufgenommen.",
+  "resolution":"Auflösung",
+  "bitRate":"Bitrate",
+  "fps": "Bild pro sekunde(fps)",
+  "orientation" : "Orientierung"
+}

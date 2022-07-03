@@ -1,0 +1,17 @@
+{
+  "rateUs" : "Rate Us" ,
+  "sendFeedback": "Send Feedback",
+  "share":"Share",
+  "language": "Top Stories",
+  "video": "Around the World",
+  "image":"Image",
+  "edit":"Edit",
+  "setting":"Setting",
+  "videoSetting":"Video Settings",
+  "noImage":"No image has been taken.",
+  "noVideo":"No video has been recorded.",
+  "resolution":"Resolution",
+  "bitRate":"Bit rate",
+  "fps": "Frame per second(fps)",
+  "orientation" : "Orientation"
+}

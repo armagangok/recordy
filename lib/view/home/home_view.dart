@@ -6,6 +6,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer: ,
       appBar: AppBar(),
       body: const Center(),
     );
