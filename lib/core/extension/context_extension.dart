@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 extension EasyContext on BuildContext {
-  double getHeight(double ratio) => MediaQuery.of(this).size.height * ratio;
-  double getWidth(double ratio) => MediaQuery.of(this).size.width * ratio;
+  double height(double ratio) => MediaQuery.of(this).size.height * ratio;
+  double width(double ratio) => MediaQuery.of(this).size.width * ratio;
 
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => Theme.of(this).textTheme;
@@ -13,7 +13,6 @@ extension EasyContext on BuildContext {
 
   void dismissKeyboard() {
     FocusScopeNode currentFocus = FocusScope.of(this);
-
     if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
       FocusManager.instance.primaryFocus?.unfocus();
     }
