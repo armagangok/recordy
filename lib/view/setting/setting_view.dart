@@ -26,9 +26,7 @@ class SettingView extends StatelessWidget {
               color: context.primaryColor,
             ),
           ),
-          SizedBox(
-            height: context.height(0.02),
-          ),
+          SizedBox(height: context.height(0.02)),
           ListView(
             shrinkWrap: true,
             physics: const ClampingScrollPhysics(),
