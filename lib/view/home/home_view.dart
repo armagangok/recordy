@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/instance_manager.dart';
+import 'package:recordy/view/setting/setting_view.dart';
 
 import './components/drawer_widget.dart';
 import './controller/tab_controller.dart';
@@ -17,6 +18,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = context.height(1);
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: AppBar(
@@ -29,7 +31,7 @@ class HomeView extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            color: Colors.blue,
+            color: context.primaryColor,
             height: context.height(0.12),
             width: context.height(1),
             child: Row(
@@ -39,38 +41,30 @@ class HomeView extends StatelessWidget {
                 createExpandedItem(
                   CupertinoIcons.video_camera,
                   LocaleKeys.video.tr(),
-                  context,
+                  height,
                   0,
-                  () {
-                    tabBarController.changeIndex(0);
-                  },
+                  () => tabBarController.changeIndex(0),
                 ),
                 createExpandedItem(
                   CupertinoIcons.photo_on_rectangle,
                   LocaleKeys.image.tr(),
-                  context,
+                  height,
                   1,
-                  () {
-                    tabBarController.changeIndex(1);
-                  },
+                  () => tabBarController.changeIndex(1),
                 ),
                 createExpandedItem(
                   CupertinoIcons.scissors_alt,
                   LocaleKeys.edit.tr(),
-                  context,
+                  height,
                   2,
-                  () {
-                    tabBarController.changeIndex(2);
-                  },
+                  () => tabBarController.changeIndex(2),
                 ),
                 createExpandedItem(
                   CupertinoIcons.settings,
                   LocaleKeys.setting.tr(),
-                  context,
+                  height,
                   3,
-                  () {
-                    tabBarController.changeIndex(3);
-                  },
+                  () => tabBarController.changeIndex(3),
                 ),
               ],
             ),
@@ -91,7 +85,7 @@ class HomeView extends StatelessWidget {
                         ? const Text("Data 2")
                         : const SizedBox(),
                     tabBarController.currentIndex.value == 3
-                        ? const Text("Data 3")
+                        ? const SettingView()
                         : const SizedBox(),
                   ],
                 );
@@ -108,7 +102,7 @@ class HomeView extends StatelessWidget {
   Widget createExpandedItem(
     IconData icon,
     String text,
-    BuildContext context,
+    double height,
     int clickedNumber,
     final Function onTap,
   ) {
@@ -116,8 +110,8 @@ class HomeView extends StatelessWidget {
       child: InkWell(
         onTap: () => onTap(),
         child: Container(
-          height: context.height(0.08),
-          color: Colors.blue,
+          height: height * 0.08,
+          color: Colors.amber,
           child: Obx(
             () {
               return Column(
@@ -140,13 +134,6 @@ class HomeView extends StatelessWidget {
                               : Colors.black,
                     ),
                   ),
-                  // clickedNumber == tabBarController.currentIndex.value
-                  //     ? Container(
-                  //         width: context.width(0.15),
-                  //         height: 2,
-                  //         color: Colors.white,
-                  //       )
-                  //     : const Center(),
                 ],
               );
             },
