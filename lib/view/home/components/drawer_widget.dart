@@ -84,7 +84,7 @@ class MenuItem extends StatelessWidget {
       onTap: () => onTap(),
       leading: Icon(
         iconData,
-        color: Colors.blue,
+        color: Colors.amber,
         size: context.height(0.04),
       ),
     );

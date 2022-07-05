@@ -41,33 +41,41 @@ class SettingView extends StatelessWidget {
             shrinkWrap: true,
             physics: const ClampingScrollPhysics(),
             children: [
-              SettingItem(
-                text: LocaleKeys.resolution.tr(),
-                data: "720p",
-                onTap: () => Get.dialog(ChooseDialog(
-                  radioController: resolutionController,
-                )),
+              Obx(
+                () => SettingItem(
+                  text: LocaleKeys.resolution.tr(),
+                  data: resolutionController.val!.value,
+                  onTap: () => Get.dialog(ChooseDialog(
+                    radioController: resolutionController,
+                  )),
+                ),
               ),
-              SettingItem(
-                text: LocaleKeys.bitRate.tr(),
-                data: "4.5 bit",
-                onTap: () => Get.dialog(ChooseDialog(
-                  radioController: bitrateController,
-                )),
+              Obx(
+                () => SettingItem(
+                  text: LocaleKeys.bitRate.tr(),
+                  data: bitrateController.val!.value,
+                  onTap: () => Get.dialog(ChooseDialog(
+                    radioController: bitrateController,
+                  )),
+                ),
               ),
-              SettingItem(
-                text: LocaleKeys.fps.tr(),
-                data: "25s",
-                onTap: () => Get.dialog(ChooseDialog(
-                  radioController: fpsController,
-                )),
+              Obx(
+                () => SettingItem(
+                  text: LocaleKeys.fps.tr(),
+                  data: fpsController.val!.value,
+                  onTap: () => Get.dialog(ChooseDialog(
+                    radioController: fpsController,
+                  )),
+                ),
               ),
-              SettingItem(
-                text: LocaleKeys.orientation.tr(),
-                data: "Auto",
-                onTap: () => Get.dialog(ChooseDialog(
-                  radioController: orientationController,
-                )),
+              Obx(
+                () => SettingItem(
+                  text: LocaleKeys.orientation.tr(),
+                  data: orientationController.val!.value,
+                  onTap: () => Get.dialog(ChooseDialog(
+                    radioController: orientationController,
+                  )),
+                ),
               )
             ],
           ),

@@ -7,6 +7,9 @@ class ImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView();
+    return ListView(
+      shrinkWrap: true,
+      children: const [],
+    );
   }
 }

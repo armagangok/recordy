@@ -11,7 +11,10 @@ class SettingItem extends StatelessWidget {
   const SettingItem({
     Key? key,
     required this.text,
-    this.icon = const Icon(Icons.arrow_forward_ios_rounded),
+    this.icon = const Icon(
+      Icons.arrow_forward_ios_rounded,
+      color: Colors.grey,
+    ),
     required this.onTap,
     required this.data,
   }) : super(key: key);
