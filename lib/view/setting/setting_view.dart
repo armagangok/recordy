@@ -1,15 +1,21 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:recordy/core/controller/radio_controller.dart';
+import 'package:recordy/feature/export/export.dart';
 
 import './components/setting_item.dart';
 import '../../core/components/dialog_widget.dart';
-import '../../core/extension/context_extension.dart';
-import '../../feature/lang/locale_keys.g.dart';
 
 class SettingView extends StatelessWidget {
-  const SettingView({Key? key}) : super(key: key);
+  SettingView({Key? key}) : super(key: key);
+
+  final ResolutionController resolutionController =
+      Get.put(ResolutionController());
+  final OrientationController orientationController =
+      Get.put(OrientationController());
+
+  final BitrateController bitrateController = Get.put(BitrateController());
+  final FpsController fpsController = Get.put(FpsController());
 
   @override
   Widget build(BuildContext context) {
@@ -38,22 +44,30 @@ class SettingView extends StatelessWidget {
               SettingItem(
                 text: LocaleKeys.resolution.tr(),
                 data: "720p",
-                onTap: () => Get.dialog(ChooseDialog()),
+                onTap: () => Get.dialog(ChooseDialog(
+                  radioController: resolutionController,
+                )),
               ),
               SettingItem(
                 text: LocaleKeys.bitRate.tr(),
                 data: "4.5 bit",
-                onTap: () => Get.dialog(ChooseDialog()),
+                onTap: () => Get.dialog(ChooseDialog(
+                  radioController: bitrateController,
+                )),
               ),
               SettingItem(
                 text: LocaleKeys.fps.tr(),
                 data: "25s",
-                onTap: () => Get.dialog(ChooseDialog()),
+                onTap: () => Get.dialog(ChooseDialog(
+                  radioController: fpsController,
+                )),
               ),
               SettingItem(
                 text: LocaleKeys.orientation.tr(),
                 data: "Auto",
-                onTap: () => Get.dialog(ChooseDialog()),
+                onTap: () => Get.dialog(ChooseDialog(
+                  radioController: orientationController,
+                )),
               )
             ],
           ),

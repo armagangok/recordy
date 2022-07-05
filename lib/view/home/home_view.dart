@@ -80,7 +80,7 @@ class HomeView extends StatelessWidget {
                         ? const Text("Data 2")
                         : const SizedBox(),
                     tabBarController.currentIndex.value == 3
-                        ? const SettingView()
+                        ? SettingView()
                         : const SizedBox(),
                   ],
                 );

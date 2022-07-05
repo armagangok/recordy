@@ -74,9 +74,10 @@ class DialogWidget extends StatelessWidget {
 }
 
 class ChooseDialog extends StatelessWidget {
-  ChooseDialog({Key? key}) : super(key: key);
+  final RadioType radioController;
 
-  final RadioController radioController = Get.put(RadioController());
+  const ChooseDialog({Key? key, required this.radioController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +101,7 @@ class ChooseDialog extends StatelessWidget {
                   return Obx(
                     () {
                       return buildItem(
-                        Resolution.values[index],
+                        radioController.adjustment[index],
                         radioController.a.value,
                       );
                     },
@@ -108,7 +109,7 @@ class ChooseDialog extends StatelessWidget {
                 }),
                 separatorBuilder: (context, index) =>
                     SizedBox(height: context.height(0.005)),
-                itemCount: Resolution.values.length,
+                itemCount: radioController.adjustment.length,
               ),
             ],
           ),
@@ -117,12 +118,12 @@ class ChooseDialog extends StatelessWidget {
     );
   }
 
-  Widget buildItem(Resolution resolution1, groupValue) {
+  Widget buildItem(String itemName, groupValue) {
     return ListTile(
-      title: Text(resolution[resolution1.name]!),
+      title: Text(itemName),
       leading: Radio(
         activeColor: Colors.amber,
-        value: resolution1,
+        value: itemName,
         groupValue: groupValue,
         toggleable: true,
         onChanged: (dynamic val) {
