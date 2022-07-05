@@ -1,14 +1,9 @@
 import 'dart:ui';
 
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get/instance_manager.dart';
-import 'package:get/route_manager.dart';
 
-import '../../core/extension/context_extension.dart';
-import '../constants/app_colors.dart';
+import '../../feature/export/export.dart';
 import '../controller/radio_controller.dart';
 
 class DialogWidget extends StatelessWidget {
@@ -122,16 +117,15 @@ class ChooseDialog extends StatelessWidget {
     );
   }
 
-  Widget buildItem(Resolution resolution, groupValue) {
+  Widget buildItem(Resolution resolution1, groupValue) {
     return ListTile(
-      title: Text(resolution.name),
-      leading: Radio<Resolution>(
+      title: Text(resolution[resolution1.name]!),
+      leading: Radio(
         activeColor: Colors.amber,
-        value: Resolution.p360,
+        value: resolution1,
         groupValue: groupValue,
         toggleable: true,
-        onChanged: (Resolution? val) {
-          print(val);
+        onChanged: (dynamic val) {
           radioController.changeValue(val!);
         },
       ),

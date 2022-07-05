@@ -43,17 +43,17 @@ class SettingView extends StatelessWidget {
               SettingItem(
                 text: LocaleKeys.bitRate.tr(),
                 data: "4.5 bit",
-                onTap: () => Get.dialog(const DialogWidget()),
+                onTap: () => Get.dialog(ChooseDialog()),
               ),
               SettingItem(
                 text: LocaleKeys.fps.tr(),
                 data: "25s",
-                onTap: () => Get.dialog(const DialogWidget()),
+                onTap: () => Get.dialog(ChooseDialog()),
               ),
               SettingItem(
                 text: LocaleKeys.orientation.tr(),
                 data: "Auto",
-                onTap: () => Get.dialog(const DialogWidget()),
+                onTap: () => Get.dialog(ChooseDialog()),
               )
             ],
           ),
