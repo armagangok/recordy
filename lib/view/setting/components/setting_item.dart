@@ -5,21 +5,21 @@ import '../../../core/extension/context_extension.dart';
 class SettingItem extends StatelessWidget {
   final String text;
   final Widget icon;
-  final Function onPressed;
+  final Function onTap;
   final String data;
 
   const SettingItem({
     Key? key,
     required this.text,
     this.icon = const Icon(Icons.arrow_forward_ios_rounded),
-    required this.onPressed,
+    required this.onTap,
     required this.data,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onPressed(),
+      onTap: () => onTap(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

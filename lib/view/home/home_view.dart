@@ -1,15 +1,10 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get/instance_manager.dart';
-import 'package:recordy/view/setting/setting_view.dart';
 
 import './components/drawer_widget.dart';
 import './controller/tab_controller.dart';
-import '../../core/extension/context_extension.dart';
-import '../../feature/lang/locale_keys.g.dart';
+import '../../feature/export/export.dart';
+import '../setting/setting_view.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);

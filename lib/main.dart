@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import './view/home/home_view.dart';
-import 'core/initilization/initialization.dart';
+import './core/initilization/initialization.dart';
 
 void main() async => await initApp();
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,
