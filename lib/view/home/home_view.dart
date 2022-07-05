@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import './components/drawer_widget.dart';
 import './controller/tab_controller.dart';
 import '../../feature/export/export.dart';
-import '../setting/setting_view.dart';
+import '../../feature/export/view_export.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);
@@ -71,13 +71,13 @@ class HomeView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     tabBarController.currentIndex.value == 0
-                        ? const Text("Data 0")
+                        ? const VideoView()
                         : const SizedBox(),
                     tabBarController.currentIndex.value == 1
-                        ? const Text("Data 1")
+                        ? const ImageView()
                         : const SizedBox(),
                     tabBarController.currentIndex.value == 2
-                        ? const Text("Data 2")
+                        ? const EditView()
                         : const SizedBox(),
                     tabBarController.currentIndex.value == 3
                         ? SettingView()
